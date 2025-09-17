@@ -41,3 +41,6 @@ To generate zipped files with the extension files for the two browsers use `npm 
 While this is work in progress, please use Firefox's or Chrome's extension debugging features.
 - [Load extension-firefox.zip as a temporary add-on on Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 - [Unpack extension-chrome.zip and install them Google Chrome extension developer mode](https://bashvlas.com/blog/install-chrome-extension-in-developer-mode)
+
+## Troubleshooting
+- Make sure notifications are enabled on your browser and OS, otherwise the extension will appear not to work.
