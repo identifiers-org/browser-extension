@@ -4,23 +4,29 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "description": "Cross-browser extension for identifiers.org",
   "scripts": {
-    "start:firefox": "run-p build:popup:watch webext:run",
     "webext:run": "web-ext run --source-dir ./dist/ -u 'https://registry.identifiers.org/registry/uniprot'",
-    "clean": "rm -Rf dist/ && rm -Rf .parcel-cache && mkdir dist",
-    "inject": "cp -R node_modules/webextension-polyfill/dist/browser-polyfill.min.js manifest.json background.js icons dist/",
+    
+    "clean": "rm -Rf dist/ .parcel-cache && mkdir dist",
+    
+    "inject:firefox": "run-p inject:manifest:firefox inject:others",
+    "inject:chrome": "run-p inject:manifest:chrome inject:others",
+    "inject:others": "cp -R node_modules/webextension-polyfill/dist/browser-polyfill.min.js background.js icons dist/",
+    "inject:manifest:firefox": "cp manifests/firefox.json dist/manifest.json",
+    "inject:manifest:chrome": "cp manifests/chrome.json dist/manifest.json",
+
     "build:popup": "parcel build --dist-dir dist/ popup/popup-index.html ",
-    "build:popup:watch": "parcel build --watch-dir popup/ --dist-dir dist/ popup/popup-index.html ",
-    "manifest:firefox": "cp -R manifest.json dist/",
-    "manifest:chrome": "cp manifest-chrome.json dist/manifest.json",
-    "package:firefox": "bestzip extension-firefox.zip dist/*",
-    "package:chrome": "bestzip extension-chrome.zip dist/*",
-    "build:firefox": "NODE_ENV=production run-s clean build:popup inject manifest:firefox package:firefox",
-    "build:chrome": "NODE_ENV=production run-s clean build:popup inject manifest:chrome package:chrome",
-    "build:all": "NODE_ENV=production run-s build:firefox build:chrome"
+    
+    "package:firefox": "cd dist/ && bestzip extension-firefox.zip * && mv extension-firefox.zip ..",
+    "package:chrome": "cd dist/ && bestzip extension-chrome.zip * && mv extension-chrome.zip ..",
+
+    "build:firefox": "NODE_ENV=production run-s clean inject:firefox build:popup package:firefox",
+    "build:chrome": "NODE_ENV=production run-s clean inject:chrome build:popup package:chrome",
+    "build:all": "run-s build:firefox build:chrome"
   },
-  "contributors": [
-    "Renato Caminha Juacaba Neto"
-  ],
+  "author": {
+    "name": "Renato Caminha Juacaba Neto",
+    "url": "https://github.com/renatocjn"
+  },
   "license": "MIT",
   "dependencies": {
     "@popperjs/core": "^2.11.8",

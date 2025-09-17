@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3, 
+  "name": "Identifiers.org",
+  "description": "Much description, very descriptive",
+  "version": "0.0.2",
+  "icons": {
+    "32": "icons/identifiers_logo.png"
+  },
+  "permissions": [
+    "tabs", 
+    "contextMenus", 
+    "clipboardWrite", 
+    "notifications",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.ebi.ac.uk/ebisearch/ws/rest/identifiers_registry",
+    "https://resolver.api.identifiers.org/reverse/byPrefix",
+    "*://identifiers.org/"
+  ],
+  "action": {
+    "default_title": "identifiers.org extension",
+    "default_popup": "popup-index.html",
+    "default_icon": "icons/identifiers_logo.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  }
+}

@@ -10,12 +10,14 @@
     "tabs", 
     "contextMenus", 
     "clipboardWrite", 
-    "notifications"
+    "notifications",
+    "activeTab",
+    "scripting"
   ],
   "host_permissions": [
     "https://www.ebi.ac.uk/ebisearch/ws/rest/identifiers_registry",
     "https://resolver.api.identifiers.org/reverse/byPrefix",
-    "*://identifiers.org"
+    "*://identifiers.org/"
   ],
   "action": {
     "default_title": "identifiers.org extension",
@@ -23,6 +25,6 @@
     "default_icon": "icons/identifiers_logo.png"
   },
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   }
 }

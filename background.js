@@ -21,6 +21,12 @@ function notify(text) {
   });
 }
 
+async function getCurrentTab() {
+  let queryOptions = { active: true, lastFocusedWindow: true };
+  // `tab` will either be a `tabs.Tab` instance or `undefined`.
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
 
 
 
@@ -39,7 +45,16 @@ const handleConvertUrl = async (url) => {
     notify(`'${url}' could not be converted`);
   } else {
     const { possible_idorg_url } = resolvedData.payload;
-    await navigator.clipboard.writeText(possible_idorg_url);
+    const tab = await getCurrentTab();
+    console.log(tab);
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      args: [possible_idorg_url],
+      func: async (url) => {
+        // This code runs in the content script context where the clipboard is available
+        await navigator.clipboard.writeText(url);
+      },
+    });
     notify("URI copied to clipboard");
   }
 }
@@ -79,33 +94,28 @@ async function handleConvertThisPageClicked(info) {
 
 
 //// Context menu setup ////////////////////////////////////////////////////////////////
-function errorCallback() {
-  if (chrome.runtime.lastError) {
-    console.error(chrome.runtime.lastError.message);
-  }
-  return chrome.runtime.lastError;
-}
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+          id: "idorg-resolve-curie",
+          title: "Resolve selected CURIE",
+          contexts: ["selection", "link"],
+      }, () => chrome.runtime.lastError
+    );
 
-chrome.contextMenus.create({
-        id: "idorg-resolve-curie",
-        title: "Resolve selected CURIE",
-        contexts: ["selection", "link"],
-    }, errorCallback
-);
+  chrome.contextMenus.create({
+          id: "idorg-convert-url",
+          title: "Get identifiers.org URI for selected URL",
+          contexts: ["selection", "link"],
+      }, () => chrome.runtime.lastError
+  );
 
-chrome.contextMenus.create({
-        id: "idorg-convert-url",
-        title: "Get identifiers.org URI for selected URL",
-        contexts: ["selection", "link"],
-    }, errorCallback
-);
-
-chrome.contextMenus.create({
-        id: "idorg-convert-this-page",
-        title: "Get identifiers.org URI for this page",
-        contexts: ["all"],
-    }, errorCallback
-);
+  chrome.contextMenus.create({
+          id: "idorg-convert-this-page",
+          title: "Get identifiers.org URI for this page",
+          contexts: ["all"],
+      }, () => chrome.runtime.lastError
+  );
+});
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "idorg-resolve-curie") {
