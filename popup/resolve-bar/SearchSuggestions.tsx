@@ -280,16 +280,16 @@ class SearchSuggestions extends React.Component<SearchSuggestionsProps, SearchSu
                             }}
                           >
                             <span
-                              className={`badge ${selectedNamespace === index ? 'badge-secondary border border-dark' : 'badge-dark border border-secondary'} font-weight-normal`}>
+                              className={`badge ${selectedNamespace === index ? 'bg-secondary border border-dark' : 'bg-dark border border-secondary'} font-weight-normal`}>
                                 {namespace.prefix}
                             </span>
 
                             <p
-                              className={`mb-0 ml-2 ${selectedNamespace === index ? 'text-white' : ''} text-ellipsis`}
+                              className={`mb-0 ms-2 ${selectedNamespace === index ? 'text-white' : ''} text-ellipsis`}
                             >
                               {namespace.name}
                               <span
-                                className={`${selectedNamespace === index ? 'text-white bg-gray' : 'text-muted bg-white'} small ml-1 ml-sm-2`}>
+                                className={`${selectedNamespace === index ? 'text-white bg-gray' : 'text-muted bg-white'} small ms-1 ms-sm-2`}>
                                 <span className='d-none d-sm-inline'>sample:</span> {namespace.sample_id}
                               </span>
                             </p>
@@ -297,7 +297,7 @@ class SearchSuggestions extends React.Component<SearchSuggestionsProps, SearchSu
                         </div>
                         <div className="col col-1">
                           <button
-                            className={`ml-auto ${selectedNamespace === index ? 'text-white' : ''}`}
+                            className={`ms-auto ${selectedNamespace === index ? 'text-white' : ''}`}
                             onClick={() => {
                               this.handleSuggestionLinkClick(namespace.prefix)
                             }}

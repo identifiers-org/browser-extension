@@ -8,9 +8,6 @@ $secondary: #e36109;
 $success: #5e801a;
 $warning: #e2ad00;
 
-$enable-rounded: true;
-$border-radius: 0;
-
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 // Bigger container
@@ -23,8 +20,8 @@ $container-max-widths: (
 
 body {
   background: #0086b4 !important;
-  height: 800px;
-  width: 600px;
+  height: 700px;
+  width: 800px;
 }
 
 .bg-lightgray {

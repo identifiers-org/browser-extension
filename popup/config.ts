@@ -1,7 +1,7 @@
 export default {
   showSearchSuggestions: true,
   resolverHardcodedUrl: 'http://identifiers.org',
-  ebiSearchDomainEndpoint: 'http://www.ebi.ac.uk/ebisearch/ws/rest/identifiers_registry',
+  ebiSearchDomainEndpoint: 'https://www.ebi.ac.uk/ebisearch/ws/rest/identifiers_registry',
   ebiSearchResponseSize: '100',
   suggestionQuerySize: 25,
   ebiSearchRescoreWhenSingleIdDetected: true,
