@@ -1,16 +1,38 @@
-# Cross-Browser extension for identifiers.org
+# Browser extension for identifiers.org
 
 This browser extension aims at facilitating workflows that use identifiers.org URIs. Both Firefox and Google Chrome are supported.
 
 > [!IMPORTANT]
-> These widgets are currently a work in progress.
+> This extension is currently a work in progress.
 
-### Features
-It embeds the current search bars available at the [identifiers.org homepage](http://identifiers.org) for easy access.
+## Features
+
+Two main feature groups are available, the embedded search bars and the action menu actions.
+
+### Embeded search bars
+
+The current search bars are available from the extension menu at the [identifiers.org homepage](http://identifiers.org) for easy access. These work in the same was as in the homepage.
+
 ![](./screenshots/popup.png)
 
-It also contains context menu actions for quickly generating identifiers.org URIs and resolving CURIEs.
+### Context menu actions
+
+These are available by right-clicking selected text, links and web pages. 
+
 ![](./screenshots/context-menu.png)
+
+The three actions available are:
+
+#### Resolve selected CURIE
+By selecting a CURIE string on any page, users can go to the URL resolved by our resolution services.
+
+#### Get identifiers.org URI for selected URL
+By right-clicking a link or selecting a URL as text, an identifiers.org URI can be generated for it if it is in our registry.
+
+#### Get identifiers.org URI for this page
+By right-clicking any page, an identifiers.org URI can be generated for it if it is in our registry.
+
+
 
 ### Compilation
 To generate zipped files with the extension files for the two browsers use `npm run build:all`. Make sure you run `npm install` first.
