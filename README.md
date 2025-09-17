@@ -32,12 +32,14 @@ By right-clicking a link or selecting a URL as text, an identifiers.org URI can 
 #### Get identifiers.org URI for this page
 By right-clicking any page, an identifiers.org URI can be generated for it if it is in our registry.
 
+-----
 
-
-### Compilation
+## Compilation
 To generate zipped files with the extension files for the two browsers use `npm run build:all`. Make sure you run `npm install` first.
 
-### Instalation
+-----
+
+## Instalation
 While this is work in progress, please use Firefox's or Chrome's extension debugging features.
 - [Load extension-firefox.zip as a temporary add-on on Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 - [Unpack extension-chrome.zip and install them Google Chrome extension developer mode](https://bashvlas.com/blog/install-chrome-extension-in-developer-mode)
