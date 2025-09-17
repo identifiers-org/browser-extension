@@ -32,12 +32,10 @@ By right-clicking a link or selecting a URL as text, an identifiers.org URI can 
 #### Get identifiers.org URI for this page
 By right-clicking any page, an identifiers.org URI can be generated for it if it is in our registry.
 
------
 
 ## Compilation
 To generate zipped files with the extension files for the two browsers use `npm run build:all`. Make sure you run `npm install` first.
 
------
 
 ## Instalation
 While this is work in progress, please use Firefox's or Chrome's extension debugging features.
