@@ -1,6 +1,6 @@
 {
   "name": "identifiersorg-extension",
-  "version": "0.0.2",
+  "version": "1.0.0-beta",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "description": "Cross-browser extension for identifiers.org",
   "scripts": {
@@ -50,5 +50,9 @@
     "@types/bootstrap": "^5.2.10",
     "process": "^0.11.10",
     "svgo": "^3.3.2"
+  },
+    "engines" : { 
+    "npm" : ">=11.0.0",
+    "node" : ">=24.0.0"
   }
 }
