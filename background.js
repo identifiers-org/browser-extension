@@ -15,7 +15,7 @@ function isValidHttpUrl(string) {
 function notify(text) {
   chrome.notifications.create({
     type: "basic",
-    iconUrl: "/icons/identifiers_logo.png",
+    iconUrl: "/icons/logo64.png",
     title: "identifiers.org",
     message: text
   });
