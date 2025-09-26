@@ -5,6 +5,9 @@ This browser extension aims at facilitating workflows that use identifiers.org U
 > [!IMPORTANT]
 > This extension is currently a work in progress.
 
+## Issues page
+https://github.com/identifiers-org/identifiers-org.github.io/issues
+
 ## Features
 
 Two main feature groups are available: the embedded search bars and the action menu actions.
