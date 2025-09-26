@@ -2,7 +2,7 @@
   "manifest_version": 3, 
   "name": "Identifiers.org",
   "description": "Much description, very descriptive",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "icons": {
     "64": "icons/logo64.png",
     "32": "icons/logo32.png"

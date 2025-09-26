@@ -1,6 +1,6 @@
 {
   "name": "identifiersorg-extension",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "description": "Cross-browser extension for identifiers.org",
   "scripts": {
