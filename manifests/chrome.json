@@ -9,7 +9,6 @@
     "32": "icons/logo32.png"
   },
   "permissions": [
-    "tabs", 
     "contextMenus", 
     "clipboardWrite", 
     "notifications",
