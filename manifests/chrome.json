@@ -2,7 +2,7 @@
   "manifest_version": 3, 
   "name": "Identifiers.org",
   "description": "Identifiers.org provides consistent access to life science data. This add-on aims to facilitate the use of identifiers.org URIs.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icons": {
     "128": "icons/logo128.png",
     "64": "icons/logo64.png",
